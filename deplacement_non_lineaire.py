@@ -16,9 +16,13 @@ v = np.zeros(N)     # liste contenant les vitesses des N masses
 Y = np.concatenate((u, v))      # (pour utiliser la fonction solve)
 
 def acceleration(n, u):
-    u_ext = np.concatenate(([u[-1]], u, [u[0]]))        # pour que la première masse soit reliée à la dernière
+      
+    # pour que la première masse soit reliée à la dernière
+    u_ext = np.concatenate(([u[-1]], u, [u[0]]))      
 
-    a = (1/m) * (k*(u_ext[n+2] - 2*u_ext[n+1] + u_ext[n]) + alpha * ((u_ext[n+2]-u_ext[n+1])**2 - (u_ext[n+1]-u_ext[n])**2))        # voir PFD non linéaire idem décalage de 1
+    # voir PFD non linéaire idem décalage de 1
+    a = (1/m) * (k*(u_ext[n+2] - 2*u_ext[n+1] + u_ext[n]) 
+        + alpha * ((u_ext[n+2]-u_ext[n+1])**2 - (u_ext[n+1]-u_ext[n])**2))        
 
     return a
 
@@ -51,8 +55,9 @@ U = solution.y[:N]      #récupère les déplacements des N masses
 
 plt.figure()
 
+# trace le déplacement de la masse n à chaque instants
 for n in range(N):
-    plt.plot(solution.t, U[n], label=f"Masse {n+1}")    # trace le déplacement de la masse n à chaque instants
+    plt.plot(solution.t, U[n], label=f"Masse {n+1}")    
 
 plt.xlabel("Temps (s)")
 plt.ylabel("Déplacement u_n(t)(m)")
