@@ -24,7 +24,8 @@ def acceleration(n, u):
 
     a = (1 / m) * (
         k * (u_ext[n + 2] - 2 * u_ext[n + 1] + u_ext[n])
-        + alpha * ((u_ext[n + 2] - u_ext[n + 1]) ** 2 - (u_ext[n + 1] - u_ext[n]) ** 2)
+        + alpha * ((u_ext[n + 2] - u_ext[n + 1]) ** 2 
+        - (u_ext[n + 1] - u_ext[n]) ** 2)
     )  # voir PFD non linéaire idem décalage de 1
 
     return a
@@ -58,7 +59,8 @@ def fourier(T):  # renvoie l'amplitude des k modes propres
     res = np.zeros(N + 1)  # la case 1 correspond au premier mode propre
     for k in range(1, N + 1):
         for i in range(1, N + 1):
-            res[k] = res[k] + (2 / (N + 1)) ** 0.5 * T[i - 1] * np.sin(  # Cf latex
+            # Cf latex
+            res[k] = res[k] + (2 / (N + 1)) ** 0.5 * T[i - 1] * np.sin( 
                 i * k * np.pi / (N + 1)
             )
     return res
