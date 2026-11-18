@@ -8,7 +8,8 @@ m = 1.0     #masse de chacune des masses
 k = 1.0     #coeff de Hook
 
 u = np.zeros(N)     # liste contenant les déplacements des N masses
-u[0] = 0.1      # déplacement de la première masse (pour engendrer le mouvement des autres masses)
+u[0] = 0.1      # déplacement de la première masse 
+#(pour engendrer le mouvement des autres masses)
 
 v = np.zeros(N)     # liste contenant les vitesses des N masses
 
